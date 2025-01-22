@@ -10,68 +10,91 @@ let boutique_ouverte = true;
 let boutique_fermee = false;
 
 let choix = prompt("Bienvenue dans mon humble boutique Aventurier. Que veux-tu savoir ? (fait un choix entre 1 et 4)");
-console.log("Quel est ton choix" + choix + " : " );
+console.log("Quel est ton choix : " + choix);
 
-let choix_1 = nom_boutique;
-let choix_2 = nom_sorcier;
-let choix_3 = price;
-let choix_4 = healthpotion;
+let choix_1 = "1";
+let choix_2 = "2";
+let choix_3 = "3";
+let choix_4 = "4";
 
-if (choix_1) {
-    console.log("La boutique s'appelle" + nom_boutique + " !");
+if (choix === "1") {
+    console.log("La boutique s'appelle " + nom_boutique + " !");
 }
-else if (choix_2) {
+else if (choix === "2") {
     console.log("Votre nom est " + nom_sorcier + " !");
 }
-else if (choix_3) {
+else if (choix === "3") {
     console.log("Le prix d'une potion de soin est de " + price + " pièce d'or !");
 }
-else if (choix_4) {
-    console.log("Nous avons" + healthpotion + " en stock !");
+else if (choix === "4") {
+    console.log("Nous avons " + healthpotion + " potions en stock !");
 }
 
 switch (choix) {
-    case choix_1:
-      // Instructions à exécuter lorsque le résultat
-      // de l'expression correspond à valeur1
-    console.log("Le nom de la boutique est" + nom_boutique + " !");
-    break;
-    case choix_2:
-      // Instructions à exécuter lorsque le résultat
-      // de l'expression correspond à valeur2
-    console.log("Votre nom est " + nom_sorcier + " !");
-    break;
-    case choix_3:
-      // Instructions à exécuter lorsque le résultat
-      // de l'expression à valeurN
-    console.log(`Le prix unitaire d'un potion est de ${price} PO !`);
-    break;
-    case choix_4:
-      // Instructions à exécuter lorsque le résultat
-      // de l'expression correspond à valeur1
-    console.log("Nous avons" + healthpotion + " en stock !");
-    break;
+    case "1":
+        console.log("Le nom de la boutique est " + nom_boutique + " !");
+        break;
+    case "2":
+        console.log("Votre nom est " + nom_sorcier + " !");
+        break;
+    case "3":
+        console.log(`Le prix unitaire d'une potion est de ${price} PO !`);
+        break;
+    case "4":
+        console.log("Nous avons " + healthpotion + " potions en stock !");
+        break;
+    default:
+        console.log("Choix invalide.");
 }
-
-
-// CALCUL PRIX POTION
-function prixTotalPotion() {
-    const healthpotion = document.querySelector(`#healthpotion`).value;
-    const price = document.querySelector(`#price`).value;
-    const prix_total = healthpotion * price;
-    document.querySelector(`#prixtotal`).textContent = prix_total;
-}
-
-document.querySelector(`#healthpotion`).addEventListener("input", prixTotalPotion);
-document.querySelector(`#price`).addEventListener("input", prixTotalPotion)
-console.log(`Tu viens d'acheter ${healthpotion} potion de soin au prix unitaire de ${price} pour un prix total de ${prixTotalPotion} !`)
-
 
 // BOURSE DE L'AVENTURIER
-let bourse = {
-    piece_or : 100
-};
+let piece_or = 100;
+let stockPotion = 666;
+let prixPotion = 40;
+let quantiteSouhaitee = 1;
 
-// VERIFIONS TA BOURSE (sous condition héhé)
+// CALCUL PRIX TOTAL (tu vas payer mec)
+let prixTotal = prixPotion * quantiteSouhaitee;
 
+// VERIFIONS LA BOURSE MONSIEUR
+if (quantiteSouhaitee > stockPotion) {
+  console.log("Désolé, il n'y a pas assez de potion en stock !");
+} else if (piece_or < prixTotal) {
+  console.log("Désolé, t'as pas assez d'argent ! (bosse un peu stp")
+} else {
+  piece_or -= prixTotal;
+  stockPotion -= quantiteSouhaitee;
+  console.log(`Achat réussi ! T'as acheté ${quantiteSouhaitee} potion(s).`);
+  console.log(`Il te reste ${piece_or} pièces d'or et ${stockPotion} en stock (mais ça va être en stock bientôt, fais confiance)`)
+}
 
+// LISTE DE POTIONS
+let potions = ["potion de soin", "potion de force", "potion de téléportation"]
+
+console.log(potions);
+
+// AFFICHAGE DES POTIONS EN STOCK
+let potions = ["potion de soin", "potion de force", "potion de téléportation"];
+console.log(potions[0]);
+console.log(potions[potions.length - 1]);
+
+for (let i = 0; i < potions.length; i++) {
+  console.log(`Nous avois de la potion ${potions[i]} en stock pour toi !`);
+}
+
+// ON AJOUTE DES POTIONS (spoiler dans l'exercice plus bas)
+const potions = ["potion de soin", "potion de force", "potion de téléportation"]
+
+const count = potions.push("grande potion de soin");
+console.log(count);
+console.log(potions);
+
+potions.push("grande potion de force", "petite potion de mana", "petite potion d'endurance");
+console.log(potions);
+
+// ON SUPPRIME DES POTIONS (pas assez d'acheteurs)
+const potions = ["potion de soin", "potion de force", "potion de téléportation"];
+console.log(potions.pop());
+console.log(potions);
+potions.pop();
+console.log(potions);
