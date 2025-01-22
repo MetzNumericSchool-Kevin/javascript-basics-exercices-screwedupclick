@@ -71,3 +71,7 @@ console.log(`Tu viens d'acheter ${healthpotion} potion de soin au prix unitaire 
 let bourse = {
     piece_or : 100
 };
+
+// VERIFIONS TA BOURSE (sous condition héhé)
+
+
