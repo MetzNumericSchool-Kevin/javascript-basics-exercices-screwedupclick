@@ -98,3 +98,9 @@ console.log(potions.pop());
 console.log(potions);
 potions.pop();
 console.log(potions);
+
+// INFORMATION OBJET
+constant potion = {};
+potion.name = "potion de soin";
+potion.prix = "25 po";
+potion.stock = "50";
