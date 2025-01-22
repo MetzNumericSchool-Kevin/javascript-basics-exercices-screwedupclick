@@ -1,17 +1,18 @@
 const nom_sorcier = prompt("Comment te nommes-tu, sorcier ? 🧙‍♂️");
 console.log("Le sorcier se nomme :" + nom_sorcier + " ! 🎉");
 
-const nom_boutique = "Sell-A-Po"
+const nom_boutique = "Sell-A-Po";
 console.log("Bienvenue dans la boutique " + nom_boutique + " Aventurier ! 🎉");
 
 let healthpotion = "666";
-let price = "3";
+let price = "40";
 /// console.log("Nous avons en stock" + healthpotion + "potion de soin");
 /// console.log("Chacune de ces potions coûtent" + price + "pièces d'or !");
 
-let boutique_ouverte = "true";
-let boutique_fermee = "false";
+let boutique_ouverte = true;
+let boutique_fermee = false;
 
+let choix = prompt("")
 console.log("Bienvenue dans mon humble boutique Aventurier. Que veux-tu savoir ? 🤔");
 
 if (choix_1) {
@@ -27,3 +28,9 @@ else if (choix_4) {
     console.log("Nous avons" + healthpotion + " en stock !")
 }
 
+
+switch (choix) {
+    case "choix_1":
+        console.log("La boutique s'appelle" + nom_boutique + " ! ");
+        break;
+}
