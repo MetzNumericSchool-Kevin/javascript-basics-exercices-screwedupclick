@@ -54,7 +54,20 @@ switch (choix) {
 }
 
 
+// CALCUL PRIX POTION
+function prixTotalPotion() {
+    const healthpotion = document.querySelector(`#healthpotion`).value;
+    const price = document.querySelector(`#price`).value;
+    const prix_total = healthpotion * price;
+    document.querySelector(`#prixtotal`).textContent = prix_total;
+}
 
-/// CALCUL PRIX POTION
-const prix_potion = prompt("Combien de potion de soin veux-tu ?");
-console.log("")
+document.querySelector(`#healthpotion`).addEventListener("input", prixTotalPotion);
+document.querySelector(`#price`).addEventListener("input", prixTotalPotion)
+console.log(`Tu viens d'acheter ${healthpotion} potion de soin au prix unitaire de ${price} pour un prix total de ${prixTotalPotion} !`)
+
+
+// BOURSE DE L'AVENTURIER
+let bourse = {
+    piece_or : 100
+};
